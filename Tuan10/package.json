@@ -1,0 +1,35 @@
+{
+    "name": "product-manager",
+    "version": "1.0.0",
+    "description": "Product management web app using Node.js, Express, EJS, DynamoDB, and S3",
+    "main": "app.js",
+    "type": "module",
+    "scripts": {
+        "dev": "nodemon app.js",
+        "start": "node app.js"
+    },
+    "keywords": [
+        "express",
+        "ejs",
+        "dynamodb",
+        "s3",
+        "mvc"
+    ],
+    "author": "",
+    "license": "MIT",
+    "dependencies": {
+        "@aws-sdk/client-dynamodb": "^3.569.0",
+        "@aws-sdk/client-s3": "^3.569.0",
+        "@aws-sdk/lib-dynamodb": "^3.569.0",
+        "dotenv": "^16.4.5",
+        "ejs": "^3.1.10",
+        "express": "^4.18.4",
+        "express-ejs-layouts": "^2.5.1",
+        "method-override": "^3.0.0",
+        "multer": "^1.4.5-lts.1",
+        "uuid": "^11.0.2"
+    },
+    "devDependencies": {
+        "nodemon": "^3.0.3"
+    }
+}

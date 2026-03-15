@@ -1,0 +1,25 @@
+<div class="card">
+    <h2>Thêm sản phẩm</h2>
+    <form class="form" method="post" action="/products" enctype="multipart/form-data">
+        <label
+            >Tên sản phẩm
+            <input type="text" name="name" required />
+        </label>
+        <label
+            >Giá bán (VND)
+            <input type="number" name="price" min="0" step="1000" required />
+        </label>
+        <label
+            >Số lượng tồn
+            <input type="number" name="quantity" min="0" step="1" required />
+        </label>
+        <label
+            >Hình ảnh
+            <input type="file" name="image" accept="image/*" required />
+        </label>
+        <div class="form-actions">
+            <a class="btn" href="/products">Hủy</a>
+            <button class="btn primary" type="submit">Lưu</button>
+        </div>
+    </form>
+</div>
