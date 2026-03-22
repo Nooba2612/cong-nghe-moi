@@ -1,0 +1,54 @@
+<div class="card">
+  <div class="card-header">
+    <h2>Danh sách sản phẩm</h2>
+    <form class="search-form" method="get" action="/products">
+      <input type="text" name="q" placeholder="Tìm theo tên" value="<%= searchText %>" />
+      <button class="btn" type="submit">Tìm kiếm</button>
+    </form>
+  </div>
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th>Hình ảnh</th>
+          <th>Tên</th>
+          <th>Giá bán</th>
+          <th>Tồn kho</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if (!products.length) { %>
+          <tr>
+            <td class="text-center" colspan="5">Chưa có sản phẩm</td>
+          </tr>
+        <% } %>
+        <% products.forEach(product => { %>
+          <tr>
+            <td>
+              <% if (product.url_image) { %>
+                <img src="<%= product.url_image %>" alt="<%= product.name %>" class="thumb" />
+              <% } else { %>
+                <span class="muted">Không có hình</span>
+              <% } %>
+            </td>
+            <td>
+              <a href="/products/<%= product.id %>"><%= product.name %></a>
+            </td>
+            <td><%= product.price.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' }) %></td>
+            <td><%= product.unit_in_stock %></td>
+            <td>
+              <div class="actions">
+                <a class="btn" href="/products/<%= product.id %>">Chi tiết</a>
+                <a class="btn" href="/products/<%= product.id %>/edit">Sửa</a>
+                <form method="post" action="/products/<%= product.id %>?_method=DELETE" onsubmit="return confirm('Bạn có chắc muốn xóa không?');">
+                  <button class="btn danger" type="submit">Xóa</button>
+                </form>
+              </div>
+            </td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+</div>

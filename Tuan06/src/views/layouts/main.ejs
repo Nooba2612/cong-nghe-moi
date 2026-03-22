@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="vi">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title><%= title %> | Tuan06 Product Manager</title>
+        <link rel="stylesheet" href="/css/style.css" />
+    </head>
+    <body>
+        <header class="page-header">
+            <div class="container header-content">
+                <h1>Product Manager</h1>
+                <nav>
+                    <a href="/products">Danh sách</a>
+                    <a class="btn primary" href="/products/new">Thêm sản phẩm</a>
+                </nav>
+            </div>
+        </header>
+
+        <main class="container">
+            <%- include('../partials/flash') %>
+            <section><%- body %></section>
+        </main>
+
+        <footer class="page-footer">
+            <div class="container">
+                <p>&copy; Đặng Phúc Nguyên - 22728691</p>
+            </div>
+        </footer>
+    </body>
+</html>

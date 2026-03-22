@@ -1,0 +1,28 @@
+<div class="card">
+  <h2>Thêm sản phẩm</h2>
+  <% if (errors && errors.length) { %>
+    <ul class="alert error">
+      <% errors.forEach(error => { %>
+        <li><%= error %></li>
+      <% }) %>
+    </ul>
+  <% } %>
+  <form class="form" method="post" action="/products" enctype="multipart/form-data">
+    <label>Tên sản phẩm
+      <input type="text" name="name" required value="<%= values?.name || '' %>" />
+    </label>
+    <label>Giá bán (VND)
+      <input type="number" min="0" step="1000" name="price" required value="<%= values?.price || '' %>" />
+    </label>
+    <label>Số lượng tồn
+      <input type="number" min="0" step="1" name="unit_in_stock" required value="<%= values?.unit_in_stock || '' %>" />
+    </label>
+    <label>Hình ảnh
+      <input type="file" name="image" accept="image/*" required />
+    </label>
+    <div class="form-actions">
+      <a class="btn" href="/products">Hủy</a>
+      <button class="btn primary" type="submit">Lưu</button>
+    </div>
+  </form>
+</div>

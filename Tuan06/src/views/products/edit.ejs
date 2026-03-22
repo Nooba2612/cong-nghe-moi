@@ -1,0 +1,40 @@
+<div class="card">
+  <h2>Chỉnh sửa sản phẩm</h2>
+  <% if (errors && errors.length) { %>
+    <ul class="alert error">
+      <% errors.forEach(error => { %>
+        <li><%= error %></li>
+      <% }) %>
+    </ul>
+  <% } %>
+  <form class="form" method="post" action="/products/<%= product.id %>?_method=PUT" enctype="multipart/form-data">
+    <label>Tên sản phẩm
+      <input type="text" name="name" required value="<%= product.name %>" />
+    </label>
+    <label>Giá bán (VND)
+      <input type="number" min="0" step="1000" name="price" required value="<%= product.price %>" />
+    </label>
+    <label>Số lượng tồn
+      <input type="number" min="0" step="1" name="unit_in_stock" required value="<%= product.unit_in_stock %>" />
+    </label>
+    <div class="form-row">
+      <div>
+        <p class="muted">Hình ảnh hiện tại</p>
+        <% if (product.url_image) { %>
+          <img class="thumb large" src="<%= product.url_image %>" alt="<%= product.name %>" />
+        <% } else { %>
+          <span class="muted">Không có hình</span>
+        <% } %>
+      </div>
+      <div>
+        <label>Chọn hình mới (tuỳ chọn)
+          <input type="file" name="image" accept="image/*" />
+        </label>
+      </div>
+    </div>
+    <div class="form-actions">
+      <a class="btn" href="/products">Hủy</a>
+      <button class="btn primary" type="submit">Cập nhật</button>
+    </div>
+  </form>
+</div>

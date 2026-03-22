@@ -1,0 +1,21 @@
+<div class="card">
+  <div class="detail-header">
+    <div>
+      <p class="muted">Mã sản phẩm</p>
+      <h2><%= product.name %></h2>
+      <p>Giá bán: <strong><%= product.price.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' }) %></strong></p>
+      <p>Tồn kho: <strong><%= product.unit_in_stock %></strong></p>
+    </div>
+    <div>
+      <% if (product.url_image) { %>
+        <img class="thumb large" src="<%= product.url_image %>" alt="<%= product.name %>" />
+      <% } else { %>
+        <span class="muted">Không có hình</span>
+      <% } %>
+    </div>
+  </div>
+  <div class="actions">
+    <a class="btn" href="/products">Quay lại</a>
+    <a class="btn" href="/products/<%= product.id %>/edit">Chỉnh sửa</a>
+  </div>
+</div>
